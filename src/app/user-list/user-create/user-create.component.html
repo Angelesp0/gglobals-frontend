@@ -1,0 +1,37 @@
+<!-- student-edit.page.html -->
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>Agregar nuevo cliente</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+
+    <ion-item>
+        <ion-input [(ngModel)]="data.first_name" placeholder="Nombre" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.last_name" placeholder="Apellido" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.direction" placeholder="Direccion" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.colony" placeholder="Colonia" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.cp" placeholder="Codigo postal" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.email" placeholder="Email" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.password" placeholder="contraseña" inputmode="password"></ion-input>
+    </ion-item>
+    <ion-button shape="round" (click)="create()" color="success" size="small">
+        Agregar
+    </ion-button>
+    <ion-button shape="round" [routerLink]="[ '/user-list']" color="danger" size="small">
+        Cancel
+    </ion-button>
+</ion-content>

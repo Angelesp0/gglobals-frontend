@@ -1,0 +1,30 @@
+<!-- student-edit.page.html -->
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>Perfil</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-avatar>
+        <img src="./../../../assets/perfil.png">
+    </ion-avatar>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.first_name" placeholder="Nombre" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.last_name" placeholder="Apellido" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.direction" placeholder="Direccion" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.colony" placeholder="Colonia" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.cp" placeholder="Codigo postal" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.email" placeholder="Email" disabled inputmode="email"></ion-input>
+    </ion-item>
+</ion-content>
