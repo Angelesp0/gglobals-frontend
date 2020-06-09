@@ -1,0 +1,7 @@
+{
+  "name": "gglobals",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
