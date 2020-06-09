@@ -1,0 +1,2 @@
+# gglobals-frontend
+ionic app
