@@ -12,25 +12,20 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 export class AppComponent implements OnInit {
   public selectedIndex = 0;
   public appPages = [
-    {
+   /* {
       title: 'Mi Perfil',
       url: '/folder/Inbox',
+      icon: 'mail'
+    },*/
+    {
+      title: 'Login',
+      url: '/login',
       icon: 'mail'
     },
     {
       title: 'Mi Cuenta',
       url: '/user-perfil/:5',
       icon: 'paper-plane'
-    },
-    {
-      title: 'Servicios',
-      url: '/folder/Favorites',
-      icon: 'heart'
-    },
-    {
-      title: 'Pagos',
-      url: '/folder/Archived',
-      icon: 'archive'
     },
     {
       title: 'Usuarios',

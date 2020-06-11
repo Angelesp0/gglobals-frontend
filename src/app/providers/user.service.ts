@@ -4,6 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { User } from '../models/user';
 import { retry, catchError } from 'rxjs/operators';
 import { stringify } from 'querystring';
+import { map } from 'rxjs/operators';
+
 
 const headers = new HttpHeaders();
 
@@ -91,5 +93,30 @@ export class UserService {
         retry(2),
         catchError(this.handleError)
       );
+  }
+
+  login(username: string, password: string) {
+    return this.http.post<any>('http://192.168.137.1:3000/auth', { username, password })
+        .pipe(
+          map(
+            user => {
+            // login successful if there's a user in the response
+            if (user) {
+                // store user details and basic auth credentials in local storage
+                // to keep user logged in between page refreshes
+                user.authdata = window.btoa(username + ':' + password);
+                localStorage.setItem('currentUser', JSON.stringify(user));
+
+            }
+
+            return user;
+        }),
+        catchError(this.handleError)
+        );
+  }
+
+  logout() {
+    // remove user from local storage to log user out
+    localStorage.removeItem('currentUser');
   }
 }
