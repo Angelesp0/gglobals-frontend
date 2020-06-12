@@ -6,9 +6,7 @@ import { retry, catchError } from 'rxjs/operators';
 import { stringify } from 'querystring';
 import { map } from 'rxjs/operators';
 
-
 const headers = new HttpHeaders();
-
 
 @Injectable({
   providedIn: 'root'
@@ -119,4 +117,12 @@ export class UserService {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
   }
+
+  uploadImage( image , componentId?) {
+    // this.http is the injected HttpClient
+    const uploadData = new FormData();
+    uploadData.append('file', image, image.name);
+    return this.http.post('http://192.168.137.1:3000/subir', uploadData)  ;
+  }
+
 }
