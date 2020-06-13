@@ -5,36 +5,37 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-    <ion-avatar>
-        <img src="./../../../assets/perfil.png">
-    </ion-avatar>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.first_name" placeholder="Nombre" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.last_name" placeholder="Apellido" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.direction" placeholder="Direccion" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.colony" placeholder="Colonia" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.cp" placeholder="Codigo postal" inputmode="numeric"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.email" placeholder="Email" disabled inputmode="email"></ion-input>
-    </ion-item>
-    <ion-grid>
-        <ion-row color="primary" justify-content-center>
-            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
-                <ion-input type="file" (change)="onFileChanged($event)" #fileInput></ion-input>
-                <ion-button color="tertiary" (click)="onUpload()">Upload!</ion-button>
-                <!-- <ion-progress-bar color="secondary" value="0.5"></ion-progress-bar>-->
-            </ion-col>
-        </ion-row>
-    </ion-grid>
-
+<ion-content class="ion-padding" padding>
+    <div class="div_general">
+        <ion-avatar>
+            <img src="./../../../assets/perfil.png">
+        </ion-avatar>
+        <ion-item>
+            <ion-input [(ngModel)]="this.data.first_name" placeholder="Nombre" inputmode="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input [(ngModel)]="this.data.last_name" placeholder="Apellido" inputmode="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input [(ngModel)]="this.data.direction" placeholder="Direccion" inputmode="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input [(ngModel)]="this.data.colony" placeholder="Colonia" inputmode="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input [(ngModel)]="this.data.cp" placeholder="Codigo postal" inputmode="numeric"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-input [(ngModel)]="this.data.email" placeholder="Email" disabled inputmode="email"></ion-input>
+        </ion-item>
+        <ion-grid>
+            <ion-row color="primary" justify-content-center>
+                <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                    <ion-input type="file" (change)="onFileChanged($event)" #fileInput></ion-input>
+                    <ion-button color="tertiary" (click)="onUpload()">Upload!</ion-button>
+                    <!-- <ion-progress-bar color="secondary" value="0.5"></ion-progress-bar>-->
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </div>
 </ion-content>
