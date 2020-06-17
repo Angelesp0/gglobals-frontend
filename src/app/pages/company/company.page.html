@@ -1,0 +1,52 @@
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-buttons slot="secondary">
+            <ion-button color="dark">
+                <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+            </ion-button>
+            <ion-button color="dark">
+                <ion-icon slot="icon-only" name="search"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-buttons slot="primary">
+            <ion-button color="dark">
+                <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+            </ion-button>
+        </ion-buttons>
+        <ion-title>Usuarios</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+
+
+<ion-content class="ion-padding">
+    <ion-grid>
+        <ion-row>
+            <ion-col>ID</ion-col>
+            <ion-col>nombre</ion-col>
+            <ion-col>acciones</ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-grid>
+        <ion-row *ngFor="let company of companies">
+            <ion-col style="font-size:10px;">{{ company.id_company }} </ion-col>
+            <ion-col style="font-size:10px;">
+                <ion-row>
+                    <ion-col style="font-size:10px;"> {{ company.company }}</ion-col>
+                </ion-row>
+            </ion-col>
+            <ion-col style="display: flex">
+                <ion-button color="warning" size="small" routerLink='/company-update/{{company.id_company}}'>
+                    <ion-icon name="create"></ion-icon>
+                </ion-button>
+                <ion-button color="danger" size="small" (click)="deleteCompany(company.id_company)">
+                    <ion-icon name="trash"></ion-icon>
+                </ion-button>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+    <ion-button color="tertiary" [routerLink]="['/company-create']">
+        Agregar Empresa
+    </ion-button>
+</ion-content>

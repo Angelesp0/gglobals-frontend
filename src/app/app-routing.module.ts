@@ -30,6 +30,14 @@ const routes: Routes = [
   {
     path: 'user-perfil/:id_user',
     loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+  },
+  {
+    path: 'company',
+    loadChildren: () => import('./pages/company/company.module').then( m => m.CompanyPageModule)
+  },
+  {
+    path: 'company-update/:id_company',
+    loadChildren: () => import('./pages/company/update/update.module').then( m => m.UpdatePageModule)
   }
 
 

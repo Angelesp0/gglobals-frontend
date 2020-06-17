@@ -1,0 +1,63 @@
+<!-- student-edit.page.html -->
+<ion-header>
+    <ion-toolbar color="tertiary">
+        <ion-title>Editar Empresa</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.rfc" placeholder="RFC" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.street" placeholder="Calle" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.cp" placeholder="Codigo postal" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.city" placeholder="Ciudad" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.tel" placeholder="Telefono" inputmode="numeric"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.company" placeholder="Empresa" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.num_ext" placeholder="Numero Exterior" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.num_int" placeholder="Numero Interior" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.state" placeholder="Estado" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.colony" placeholder="Colonia" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.name" placeholder="Nombre del contacto" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.last_name" placeholder="Apellido del contacto" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.mobile" placeholder="No. Celular" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.email" placeholder="Email" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.service" placeholder="Servicios" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="this.data.invoice" placeholder="¿Requiere factura?" inputmode="email"></ion-input>
+    </ion-item>
+    <ion-button shape="round" (click)="updateCompany()" color="success" size="small">
+        Update
+    </ion-button>
+    <ion-button shape="round" [routerLink]="[ '/company']" color="danger" size="small">
+        Cancel
+    </ion-button>
+</ion-content>

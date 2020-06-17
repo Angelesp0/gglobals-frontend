@@ -31,6 +31,11 @@ export class AppComponent implements OnInit {
       title: 'Usuarios',
       url: 'user-list',
       icon: 'archive'
+    },
+    {
+      title: 'Empresas',
+      url: 'company',
+      icon: 'archive'
     }
   ];
   public labels = ['Ayuda' , 'Cerrar Sesión'];
