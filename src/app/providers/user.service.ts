@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {HttpHeaders, HttpClient, HttpErrorResponse, HttpParams } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError, BehaviorSubject } from 'rxjs';
 import { User } from '../models/user';
 import { retry, catchError } from 'rxjs/operators';
 import { stringify } from 'querystring';
@@ -15,8 +15,18 @@ export class UserService {
 
   // tslint:disable-next-line: variable-name
   base_path = 'http://192.168.137.1:3000/users';
+  private currentUserSubject: BehaviorSubject<User>;
+  public currentUser: Observable<User>;
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
+    this.currentUser = this.currentUserSubject.asObservable();
+  }
+
+  public get currentUserValue(): any {
+
+    return this.currentUserSubject.value;
+}
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -104,6 +114,7 @@ export class UserService {
                 // to keep user logged in between page refreshes
                 user.authdata = window.btoa(username + ':' + password);
                 localStorage.setItem('currentUser', JSON.stringify(user));
+                this.currentUserSubject.next(user);
 
             }
 
@@ -116,6 +127,7 @@ export class UserService {
   logout() {
     // remove user from local storage to log user out
     localStorage.removeItem('currentUser');
+    this.currentUserSubject.next(null);
   }
 
   uploadImage( image , componentId?) {

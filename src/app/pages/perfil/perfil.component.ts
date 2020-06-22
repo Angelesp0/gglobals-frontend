@@ -24,8 +24,10 @@ export class PerfilComponent implements OnInit {
      }
 
   ngOnInit() {
+    this.id = this.activatedRoute.snapshot.params["id_user"];
+    console.log(this.id);
     const user  = JSON.parse(localStorage.getItem('currentUser'));
-    this.userService.getUser(user[0]['id_user']).subscribe(response => {
+    this.userService.getUser(this.id).subscribe(response => {
       this.data  = response;
     });
   }

@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+import { Role } from './models/role';
+import { UserService } from './providers/user.service';
+
 
 @Component({
   selector: 'app-root',
@@ -10,6 +13,13 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
+  currentUser: any = {
+    user: 0,
+    };
+  user: any = {
+    user: 0,
+  };
+
   public selectedIndex = 0;
   public appPages = [
    /* {
@@ -21,12 +31,12 @@ export class AppComponent implements OnInit {
       title: 'Login',
       url: '/login',
       icon: 'mail'
-    },
+    },/*
     {
       title: 'Mi Cuenta',
-      url: '/user-perfil/:5',
+      url: 'user-perfil/:id',
       icon: 'paper-plane'
-    },
+    },*/
     {
       title: 'Usuarios',
       url: 'user-list',
@@ -48,8 +58,11 @@ export class AppComponent implements OnInit {
   constructor(
     private platform: Platform,
     private splashScreen: SplashScreen,
-    private statusBar: StatusBar
+    private statusBar: StatusBar,
+    private authenticationService: UserService
+
   ) {
+    this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.initializeApp();
   }
 
@@ -61,9 +74,18 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log(this.currentUser['user']); 
+    this.user = this.currentUser['user']['role_id_role'];
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
+
+  get isAdmin() {
+    return this.currentUser && this.currentUser.role === Role.Admin;
+  }
 }
+
+/*    const a = JSON.parse(localStorage.getItem('currentUser'));
+    console.log(a['user']['id_user']); */
