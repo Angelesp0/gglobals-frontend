@@ -38,6 +38,10 @@ const routes: Routes = [
   {
     path: 'company-update/:id_company',
     loadChildren: () => import('./pages/company/update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'pruebas',
+    loadChildren: () => import('./pages/pruebas/pruebas.module').then( m => m.PruebasPageModule)
   }
 
 
