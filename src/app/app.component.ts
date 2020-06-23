@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {NgModule, Component, OnInit } from '@angular/core';
 
 import { Platform } from '@ionic/angular';
 import { SplashScreen } from '@ionic-native/splash-screen/ngx';
 import { StatusBar } from '@ionic-native/status-bar/ngx';
+
 import { Role } from './models/role';
+import { User } from './models/user';
 import { UserService } from './providers/user.service';
 
 
@@ -13,20 +15,11 @@ import { UserService } from './providers/user.service';
   styleUrls: ['app.component.scss']
 })
 export class AppComponent implements OnInit {
-  currentUser: any = {
-    user: 0,
-    };
-  user: any = {
-    user: 0,
-  };
+  currentUser: User;
+  user: any;
 
   public selectedIndex = 0;
   public appPages = [
-   /* {
-      title: 'Mi Perfil',
-      url: '/folder/Inbox',
-      icon: 'mail'
-    },*/
     {
       title: 'Login',
       url: '/login',
@@ -62,6 +55,7 @@ export class AppComponent implements OnInit {
     private authenticationService: UserService
 
   ) {
+
     this.authenticationService.currentUser.subscribe(x => this.currentUser = x);
     this.initializeApp();
   }
@@ -74,18 +68,15 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.currentUser['user']); 
     this.user = this.currentUser['user']['role_id_role'];
+    console.log(this.user);
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());
     }
   }
 
-  get isAdmin() {
-    return this.currentUser && this.currentUser.role === Role.Admin;
-  }
+  //get isAdmin() {
+    //return this.currentUser && this.currentUser.role === 1;
+  //}
 }
-
-/*    const a = JSON.parse(localStorage.getItem('currentUser'));
-    console.log(a['user']['id_user']); */

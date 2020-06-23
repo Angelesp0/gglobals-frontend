@@ -1,34 +1,99 @@
 <ion-app>
-    <!--
-    <ion-tabs>
-        <ion-tab-bar slot="bottom">
-            <ion-tab-button tab="user-list">
-                <ion-label>Usuarios</ion-label>
-                <ion-icon name="people-outline"></ion-icon>
-            </ion-tab-button>
-            <ion-tab-button tab="company">
-                <ion-label>Empresas</ion-label>
-                <ion-icon name="business-outline"></ion-icon>
-            </ion-tab-button>
-            <ion-tab-button tab="payments">
-                <ion-label>Pagos</ion-label>
-                <ion-icon name="card-outline"></ion-icon>
-            </ion-tab-button>
-            <ion-tab-button tab="services">
-                <ion-label>Servicios</ion-label>
-                <ion-icon name="easel-outline"></ion-icon>
-            </ion-tab-button>
-        </ion-tab-bar>
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+    <ion-tabs [ngSwitch]="this.currentUser['user']['role_id_role']">
+        <div *ngSwitchCase="'0'">
+            <ion-tab-bar slot="bottom">
+                <ion-tab-button tab="user-list">
+                    <ion-label>Usuarios</ion-label>
+                    <ion-icon name="people-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="company">
+                    <ion-label>Empresas</ion-label>
+                    <ion-icon name="business-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="pruebas">
+                    <ion-label>Pagos</ion-label>
+                    <ion-icon name="card-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="services">
+                    <ion-label>Servicios</ion-label>
+                    <ion-icon name="easel-outline"></ion-icon>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </div>
+        <div *ngSwitchCase="'1'">
+            <ion-tab-bar slot="bottom">
+                <ion-tab-button tab="user-list">
+                    <ion-label>Usuarios</ion-label>
+                    <ion-icon name="people-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="company">
+                    <ion-label>Empresas</ion-label>
+                    <ion-icon name="business-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="pruebas">
+                    <ion-label>Pagos</ion-label>
+                    <ion-icon name="card-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="services">
+                    <ion-label>Servicios</ion-label>
+                    <ion-icon name="easel-outline"></ion-icon>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </div>
+        <div *ngSwitchCase="'2'">
+            <ion-tab-bar slot="bottom">
+                <ion-tab-button tab="user-list">
+                    <ion-label>Usuarios</ion-label>
+                    <ion-icon name="people-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="company">
+                    <ion-label>Empresas</ion-label>
+                    <ion-icon name="business-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="pruebas">
+                    <ion-label>Pagos</ion-label>
+                    <ion-icon name="card-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="services">
+                    <ion-label>Servicios</ion-label>
+                    <ion-icon name="easel-outline"></ion-icon>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </div>
+        <div *ngSwitchCase="'3'">
+            <ion-tab-bar slot="bottom">
+                <ion-tab-button tab="user-list">
+                    <ion-label>Usuarios</ion-label>
+                    <ion-icon name="people-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="company">
+                    <ion-label>Empresas</ion-label>
+                    <ion-icon name="business-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="pruebas">
+                    <ion-label>Pagos</ion-label>
+                    <ion-icon name="card-outline"></ion-icon>
+                </ion-tab-button>
+                <ion-tab-button tab="services">
+                    <ion-label>Servicios</ion-label>
+                    <ion-icon name="easel-outline"></ion-icon>
+                </ion-tab-button>
+            </ion-tab-bar>
+        </div>
+
     </ion-tabs>
--->
-    <ion-split-pane contentId="main-content">
+
+
+
+    <!--
         <ion-menu contentId="main-content" type="overlay">
             <ion-content class="fondologin">
                 <ion-list id="inbox-list" [ngSwitch]="this.currentUser['user']['role_id_role']">
                     <ion-list-header>Sistemas</ion-list-header>
                     <ion-note>Sistemascuu@gglobals.com.mx</ion-note>
-                    <div *ngSwitchCase="1">soy admin
-
+                    <div *ngSwitchCase="'1'">
+                        <p>soy admin</p>
                         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
                             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
                                 <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
@@ -36,7 +101,8 @@
                             </ion-item>
                         </ion-menu-toggle>
                     </div>
-                    <div *ngSwitchCase="2">soy ejecutivo
+                    <div *ngSwitchCase="'2'">
+                        <p>soy ejecutivo</p>
                         <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
                             <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
                                 <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
@@ -44,14 +110,15 @@
                             </ion-item>
                         </ion-menu-toggle>
                     </div>
-                    <div *ngSwitchCase="3">soy cliente</div>
-                    <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
-                        <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
-                            <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
-                            <ion-label>{{ p.title }}</ion-label>
-                        </ion-item>
-                    </ion-menu-toggle>
-
+                    <div *ngSwitchCase="'3'">
+                        <p>soy cliente</p>
+                        <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages; let i = index">
+                            <ion-item (click)="selectedIndex = i" routerDirection="root" [routerLink]="[p.url]" lines="none" detail="false" [class.selected]="selectedIndex == i">
+                                <ion-icon slot="start" [ios]="p.icon + '-outline'" [md]="p.icon + '-sharp'"></ion-icon>
+                                <ion-label>{{ p.title }}</ion-label>
+                            </ion-item>
+                        </ion-menu-toggle>
+                    </div>
                 </ion-list>
 
                 <ion-list id="labels-list">
@@ -64,7 +131,7 @@
                 </ion-list>
             </ion-content>
         </ion-menu>
-        <ion-router-outlet id="main-content"></ion-router-outlet>
+-->
 
-    </ion-split-pane>
+
 </ion-app>

@@ -9,7 +9,7 @@
             </ion-button>
         </ion-buttons>
         <ion-buttons slot="primary">
-            <ion-button color="dark">
+            <ion-button color="dark" [routerLink]="[ '/login']">
                 <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
             </ion-button>
         </ion-buttons>
@@ -17,27 +17,31 @@
     </ion-toolbar>
 </ion-header>
 
-
-
-
-<ion-content class="ion-padding">
+<ion-content fullscreen>
     <ion-grid>
         <ion-row>
-            <ion-col>Id</ion-col>
-            <ion-col>nombre</ion-col>
-            <ion-col>acciones</ion-col>
-        </ion-row>
-    </ion-grid>
-    <ion-grid>
-        <ion-row *ngFor="let user of users">
-            <ion-col style="font-size:10px;">{{ user.id_user }} </ion-col>
-            <ion-col style="font-size:10px;">
-                <ion-row>
-                    <ion-col style="font-size:10px;"> {{ user.first_name }}</ion-col>
-                    <ion-col style="font-size:9px;">{{ user.email }} </ion-col>
-                </ion-row>
+            <ion-col size="2">
+                <div>Id</div>
             </ion-col>
-            <ion-col style="display: flex">
+            <ion-col>
+                <div>Nombre</div>
+            </ion-col>
+            <ion-col>
+                <div>Acciones</div>
+            </ion-col>
+        </ion-row>
+        <ion-row *ngFor="let user of users">
+            <ion-col size="2">
+                <div style='font-size:90%'>{{ user.id_user }}</div>
+            </ion-col>
+            <ion-col>
+                <div>{{ user.first_name }}
+                    <div style='font-size:60%'>{{ user.email }}
+                    </div>
+                </div>
+            </ion-col>
+
+            <ion-col size="5">
                 <ion-button color="warning" size="small" routerLink='/user-update/{{user.id_user}}'>
                     <ion-icon name="create"></ion-icon>
                 </ion-button>
@@ -47,7 +51,14 @@
             </ion-col>
         </ion-row>
     </ion-grid>
-    <ion-button color="tertiary" [routerLink]="['/user-create']">
-        Agregar cliente
-    </ion-button>
+
+
+
+    <ion-fab horizontal="start" vertical="bottom" slot="fixed" [routerLink]="['/user-create']">
+        <ion-fab-button color="success">
+            <ion-icon name="add" color="dark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+
+
 </ion-content>

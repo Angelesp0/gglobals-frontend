@@ -1,20 +1,51 @@
-<ion-tabs>
-    <ion-tab-bar slot="bottom">
-        <ion-tab-button tab="user-list">
-            <ion-label>Usuarios</ion-label>
-            <ion-icon name="people-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="company">
-            <ion-label>Empresas</ion-label>
-            <ion-icon name="business-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="payments">
-            <ion-label>Pagos</ion-label>
-            <ion-icon name="card-outline"></ion-icon>
-        </ion-tab-button>
-        <ion-tab-button tab="services">
-            <ion-label>Servicios</ion-label>
-            <ion-icon name="easel-outline"></ion-icon>
-        </ion-tab-button>
-    </ion-tab-bar>
-</ion-tabs>
+<ion-app>
+    <ion-header>
+        <ion-toolbar color="tertiary">
+            <ion-buttons slot="secondary">
+                <ion-button color="dark">
+                    <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+                </ion-button>
+                <ion-button color="dark">
+                    <ion-icon slot="icon-only" name="search"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="primary">
+                <ion-button color="dark" [routerLink]="[ '/login']">
+                    <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>Usuarios</ion-title>
+        </ion-toolbar>
+    </ion-header>
+
+    <ion-content fullscreen>
+        <ion-grid>
+            <ion-row>
+                <ion-col size="2.3">
+                    <div>id</div>
+                </ion-col>
+                <ion-col>
+                    <div>nombre</div>
+                </ion-col>
+                <ion-col>
+                    <div>acciones</div>
+                </ion-col>
+            </ion-row>
+            <ion-row>
+                <ion-col size="2.3">
+                    <div>25</div>
+                </ion-col>
+                <ion-col>
+                    <div>2 of 3
+                        <div>2 of 3</div>
+                    </div>
+                </ion-col>
+                <ion-col>
+                    <div>2 of 3
+                        <div>2 of 3</div>
+                    </div>
+                </ion-col>
+            </ion-row>
+        </ion-grid>
+    </ion-content>
+</ion-app>

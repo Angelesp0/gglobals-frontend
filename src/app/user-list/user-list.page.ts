@@ -12,7 +12,8 @@ import { UserService } from './../providers/user.service';
 export class UserListPage {
   users: any;
 
-  constructor(public userService: UserService) { }
+  constructor(
+    public userService: UserService) { }
 
   ngOnInit() {}
 
