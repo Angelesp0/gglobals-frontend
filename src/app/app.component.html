@@ -1,4 +1,22 @@
 <ion-app>
+    <ion-header>
+        <ion-toolbar color="tertiary">
+            <ion-buttons slot="secondary">
+                <ion-button color="dark" routerLink="/user-perfil/{{this.currentUser['user']['id_user']}}">
+                    <ion-icon slot="icon-only" name="person-circle"></ion-icon>
+                </ion-button>
+                <ion-button color="dark">
+                    <ion-icon slot="icon-only" name="search"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-buttons slot="primary">
+                <ion-button color="dark" [routerLink]="[ '/login']">
+                    <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+                </ion-button>
+            </ion-buttons>
+            <ion-title>Usuarios</ion-title>
+        </ion-toolbar>
+    </ion-header>
     <ion-router-outlet id="main-content"></ion-router-outlet>
     <ion-tabs [ngSwitch]="this.currentUser['user']['role_id_role']">
         <div *ngSwitchCase="'0'">

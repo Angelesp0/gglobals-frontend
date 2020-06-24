@@ -69,7 +69,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.currentUser['user']['role_id_role'];
-    console.log(this.user);
     const path = window.location.pathname.split('folder/')[1];
     if (path !== undefined) {
       this.selectedIndex = this.appPages.findIndex(page => page.title.toLowerCase() === path.toLowerCase());

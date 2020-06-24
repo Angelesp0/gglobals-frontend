@@ -25,7 +25,6 @@ export class PerfilComponent implements OnInit {
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params["id_user"];
-    console.log(this.id);
     const user  = JSON.parse(localStorage.getItem('currentUser'));
     this.userService.getUser(this.id).subscribe(response => {
       this.data  = response;
@@ -38,15 +37,17 @@ export class PerfilComponent implements OnInit {
   }
 
   onUpload() {
+  const userid = this.activatedRoute.snapshot.params["id_user"];
+
   // this.http is the injected HttpClient
   const uploadData = new FormData();
   uploadData.append('file', this.selectedFile, this.selectedFile.name);
-  this.http.post('http://192.168.137.1:3000/subir', uploadData, {
+  uploadData.append('users_id_user', userid);
+  this.http.post('http://192.168.137.1:3000/subirimagen',  uploadData, {
       reportProgress: true,
       observe: 'events'
     })
       .subscribe(event => {
-        console.log(event); // handle event here
       });
   }
 
