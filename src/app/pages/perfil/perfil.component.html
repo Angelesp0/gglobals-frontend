@@ -5,10 +5,10 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding" padding>
+<ion-content fullscreen>
     <div class="div_general">
         <ion-avatar>
-            <img src="./../../../assets/perfil.png">
+            <img src="http://192.168.137.1:3000/files/{{ imgs }}">
         </ion-avatar>
         <ion-item>
             <ion-input [(ngModel)]="this.data.first_name" placeholder="Nombre" inputmode="text"></ion-input>

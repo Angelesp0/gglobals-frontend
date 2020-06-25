@@ -13,6 +13,8 @@ export class PerfilComponent implements OnInit {
   id: number;
   data: any;
   selectedFile: File;
+  imgs: any;
+  hola = 'hola';
 
 
   constructor(
@@ -29,7 +31,14 @@ export class PerfilComponent implements OnInit {
     this.userService.getUser(this.id).subscribe(response => {
       this.data  = response;
     });
+    this.userService.getImg(this.id).subscribe(res => {
+      console.log(res);
+      const img = JSON.stringify(res[0].nombre);
+      this.imgs = img.replace(/['"]+/g, '');
+    });
   }
+
+
 
 
   onFileChanged(event) {

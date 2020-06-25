@@ -26,11 +26,16 @@ export class UserService {
   public get currentUserValue(): any {
 
     return this.currentUserSubject.value;
-}
+  }
 
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json; charset=utf-8'
+    })
+  };
+  httpOptions2 = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
     })
   };
 
@@ -135,6 +140,10 @@ export class UserService {
     const uploadData = new FormData();
     uploadData.append('file', image, image.name);
     return this.http.post('http://192.168.137.1:3000/subir', uploadData)  ;
+  }
+
+  getImg(id) {
+    return this.http.get('http://192.168.137.1:3000/imagenes/' + id, this.httpOptions2);
   }
 
 }
