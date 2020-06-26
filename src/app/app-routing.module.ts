@@ -42,6 +42,10 @@ const routes: Routes = [
   {
     path: 'pruebas',
     loadChildren: () => import('./pages/pruebas/pruebas.module').then( m => m.PruebasPageModule)
+  },
+  {
+    path: 'documents/:id_user',
+    loadChildren: () => import('./pages/documents/documents.module').then( m => m.DocumentsPageModule)
   }
 
 

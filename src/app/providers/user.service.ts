@@ -33,11 +33,7 @@ export class UserService {
       'Content-Type': 'application/json; charset=utf-8'
     })
   };
-  httpOptions2 = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/x-www-form-urlencoded; charset=utf-8'
-    })
-  };
+
 
   handleError(error: HttpErrorResponse) {
     if (error.error instanceof ErrorEvent) {
@@ -143,7 +139,11 @@ export class UserService {
   }
 
   getImg(id) {
-    return this.http.get('http://192.168.137.1:3000/imagenes/' + id, this.httpOptions2);
+    return this.http.get('http://192.168.137.1:3000/imagenes/' + id, this.httpOptions);
+  }
+
+  getdocuments(id){
+    return this.http.get('http://192.168.137.1:3000/files/' + id, this.httpOptions);
   }
 
 }

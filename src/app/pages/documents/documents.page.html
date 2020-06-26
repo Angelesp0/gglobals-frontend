@@ -1,0 +1,22 @@
+<ion-header>
+    <ion-toolbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <ion-grid>
+
+        <ion-row *ngFor="let document of documents">
+            <ion-col>
+                <ion-item button href="http://192.168.137.1:3000/files/{{document.nombre}}">
+                    <ion-avatar slot="start">
+                        <img src="./../../../assets/perfil.png">
+                    </ion-avatar>
+                    <ion-label>
+                        {{document.nombre}}
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
