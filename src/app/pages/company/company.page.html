@@ -8,35 +8,23 @@
 
 <ion-content fullscreen>
     <ion-grid>
-        <ion-row>
-            <ion-col size="2">
-                <div>Id</div>
-            </ion-col>
-            <ion-col>
-                <div>Nombre</div>
-            </ion-col>
-            <ion-col>
-                <div>Acciones</div>
-            </ion-col>
-        </ion-row>
         <ion-row *ngFor="let company of companies">
-            <ion-col size="2">
-                <div style='font-size:90%'>{{ company.id_company }} </div>
-            </ion-col>
             <ion-col>
-                <div> {{ company.company }}
-                    <div style='font-size:60%'>{{ company.rfc }}</div>
-                </div>
-            </ion-col>
-            <ion-col size="5">
-                <ion-button color="warning" size="small" routerLink='/company-update/{{company.id_company}}'>
-                    <ion-icon name="create"></ion-icon>
-                </ion-button>
-                <ion-button color="danger" size="small" (click)="deleteCompany(company.id_company)">
-                    <ion-icon name="trash"></ion-icon>
-                </ion-button>
+                <ion-item button routerLink='/company-update/{{company.id_company}}'>
+                    <ion-avatar slot="start">
+                        <img src="http://192.168.137.1:3000/files/{{ company.img }}">
+                    </ion-avatar>
+                    <ion-label> {{ company.company }}
+                        <ion-label style="font-size:80%">RFC: {{ company.rfc }} </ion-label>
+                    </ion-label>
+
+                    <ion-button color="danger" size="small" (click)="deleteCompany(company.id_company)">
+                        <ion-icon name="trash"></ion-icon>
+                    </ion-button>
+                </ion-item>
             </ion-col>
         </ion-row>
+
     </ion-grid>
     <ion-fab horizontal="start" vertical="bottom" slot="fixed">
         <ion-fab-button color="success">

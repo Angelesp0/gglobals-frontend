@@ -24,7 +24,6 @@ export class UserService {
   }
 
   public get currentUserValue(): any {
-
     return this.currentUserSubject.value;
   }
 
@@ -144,6 +143,10 @@ export class UserService {
 
   getdocuments(id){
     return this.http.get('http://192.168.137.1:3000/files/' + id, this.httpOptions);
+  }
+
+  getDocumentsByIdCompany(id){
+    return this.http.get('http://192.168.137.1:3000/company/files/' + id, this.httpOptions);
   }
 
 }

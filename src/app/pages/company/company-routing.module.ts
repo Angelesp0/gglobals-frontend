@@ -7,8 +7,13 @@ const routes: Routes = [
   {
     path: '',
     component: CompanyPage
+  }
+  /*,
+  {
+    path: 'companydocuments/:id_company',
+    loadChildren: () => import('./companydocuments/companydocuments.module').then( m => m.CompanydocumentsPageModule)
   },
-  /*{
+  {
     path: 'update',
     loadChildren: () => import('./update/update.module').then( m => m.UpdatePageModule)
   }*/

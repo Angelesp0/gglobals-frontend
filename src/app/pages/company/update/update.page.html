@@ -3,59 +3,116 @@
     </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.rfc" placeholder="RFC" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.street" placeholder="Calle" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.cp" placeholder="Codigo postal" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.city" placeholder="Ciudad" inputmode="text"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.tel" placeholder="Telefono" inputmode="numeric"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.company" placeholder="Empresa" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.num_ext" placeholder="Numero Exterior" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.num_int" placeholder="Numero Interior" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.state" placeholder="Estado" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.colony" placeholder="Colonia" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.name" placeholder="Nombre del contacto" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.last_name" placeholder="Apellido del contacto" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.mobile" placeholder="No. Celular" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.email" placeholder="Email" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.service" placeholder="Servicios" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-input [(ngModel)]="this.data.invoice" placeholder="¿Requiere factura?" inputmode="email"></ion-input>
-    </ion-item>
-    <ion-button shape="round" (click)="updateCompany()" color="success" size="small">
-        Update
-    </ion-button>
-    <ion-button shape="round" [routerLink]="[ '/company']" color="danger" size="small">
-        Cancel
-    </ion-button>
+<ion-content fullscreen>
+    <ion-grid>
+        <ion-col>
+            <ion-item>
+
+                <ion-avatar slot="start">
+                    <img src="http://192.168.137.1:3000/files/{{ this.data.img }}">
+                </ion-avatar>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Nombre de la Empresa
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.company" placeholder="Empresa" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">RFC
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.rfc" placeholder="RFC" inputmode="numeric"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Servicios que presta la Empresa
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.service" placeholder="Servicios" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Telefono
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.tel" placeholder="Telefono" inputmode="numeric"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Ciudad
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.city" placeholder="Ciudad" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Colonia
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.colony" placeholder="Colonia" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Calle
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.street" placeholder="Calle" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Codigo postal
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.cp" placeholder="Codigo postal" inputmode="numeric"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Numero Interior
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.num_int" placeholder="Numero Interior" inputmode="numeric"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Numero Exterior
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.num_ext" placeholder="Numero Exterior" inputmode="numeric"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Nombre del Contacto</ion-label>
+                <ion-input [(ngModel)]="this.data.name" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Apellido del contacto</ion-label>
+                <ion-input [(ngModel)]="this.data.last_name" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Numero de Celular del contacto</ion-label>
+                <ion-input [(ngModel)]="this.data.mobile" inputmode="numeric"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Email del contacto</ion-label>
+                <ion-input [(ngModel)]="this.data.email" inputmode="email"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">¿Requiere Factura?
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.invoice" inputmode="numeric"></ion-input>
+            </ion-item>
+
+            <ion-grid>
+                <ion-row color="primary" justify-content-center>
+                    <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                        <ion-input type="file" (change)="onFileChanged($event)" #fileInput></ion-input>
+                        <ion-button color="tertiary" (click)="onUpload()">Subir Imagen!</ion-button>
+                        <!-- <ion-progress-bar color="secondary" value="0.5"></ion-progress-bar>-->
+                    </ion-col>
+                </ion-row>
+            </ion-grid>
+
+            <ion-button color="tertiary" routerLink="/companydocuments/{{this.id}}">ver documentos!</ion-button>
+
+            <ion-button shape="round" (click)="updateCompany()" color="success" size="small">
+                Update
+            </ion-button>
+            <ion-button shape="round" [routerLink]="[ '/company']" color="danger" size="small">
+                Cancel
+            </ion-button>
+        </ion-col>
+    </ion-grid>
 </ion-content>

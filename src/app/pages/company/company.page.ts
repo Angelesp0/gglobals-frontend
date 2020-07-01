@@ -17,10 +17,10 @@ export class CompanyPage implements OnInit {
   ngOnInit() {}
 
   ionViewWillEnter() {
-    this.getAllStudents();
+    this.getAllCompanies();
   }
 
-  getAllStudents() {
+  getAllCompanies() {
     this.companyService.getCompanies()
     .subscribe(
       (data) => { // Success
@@ -47,7 +47,7 @@ export class CompanyPage implements OnInit {
 
   deleteCompany(id) {
     this.companyService.deleteCompany(id).subscribe(Response => {
-      this.getAllStudents();
+      this.getAllCompanies();
     });
   }
 

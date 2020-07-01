@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: 'documents/:id_user',
     loadChildren: () => import('./pages/documents/documents.module').then( m => m.DocumentsPageModule)
+  },
+  {
+    path: 'companydocuments/:id_company',
+    loadChildren: () => import('./pages/company/companydocuments/companydocuments.module').then( m => m.CompanydocumentsPageModule)
   }
 
 
