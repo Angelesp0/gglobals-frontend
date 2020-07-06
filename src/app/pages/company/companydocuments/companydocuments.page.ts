@@ -19,6 +19,7 @@ export class CompanydocumentsPage implements OnInit {
 
   ngOnInit() {
     this.id = this.activatedRoute.snapshot.params["id_company"];
+    console.log(this.id);
     this.userService.getDocumentsByIdCompany(this.id).subscribe(response => {
       this.documents  = response;
     });

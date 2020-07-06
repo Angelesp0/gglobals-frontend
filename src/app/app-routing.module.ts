@@ -50,6 +50,22 @@ const routes: Routes = [
   {
     path: 'companydocuments/:id_company',
     loadChildren: () => import('./pages/company/companydocuments/companydocuments.module').then( m => m.CompanydocumentsPageModule)
+  },
+  {
+    path: 'services',
+    loadChildren: () => import('./pages/services/services.module').then( m => m.ServicesPageModule)
+  },
+  {
+    path: 'a-services',
+    loadChildren: () => import('./pages/admin/a-services/a-services.module').then( m => m.AServicesPageModule)
+  },
+  {
+    path: 'service-update/:id_service',
+    loadChildren: () => import('./pages/admin/a-services/update/update.module').then( m => m.UpdatePageModule)
+  },
+  {
+    path: 'create',
+    loadChildren: () => import('./pages/admin/a-services/create/create.module').then( m => m.CreatePageModule)
   }
 
 

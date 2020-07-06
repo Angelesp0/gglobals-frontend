@@ -1,0 +1,38 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>services</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+    <ion-list>
+        <!--
+        <ion-list-header>
+        </ion-list-header>
+-->
+        <ion-row *ngFor="let service of services">
+            <ion-col>
+                <ion-item button routerLink='/service-update/{{service.id_service}}'>
+                    <ion-avatar slot="start">
+                        <img src="http://192.168.137.1:3000/files/{{ service.img }}">
+                    </ion-avatar>
+                    <ion-label>
+                        <h2>{{service.name_service}}</h2>
+                        <h3 style="color: grey;">{{service.desc_service}}</h3>
+                        <h3 style="color: green;">{{service.price}}</h3>
+                    </ion-label>
+                    <ion-button color="danger" size="small" (click)="deleteService(service.id_service)" [routerLink]="[ '/a-services']">
+                        <ion-icon name="trash"></ion-icon>
+                    </ion-button>
+                </ion-item>
+            </ion-col>
+
+        </ion-row>
+    </ion-list>
+    <ion-fab horizontal="start" vertical="bottom" slot="fixed" [routerLink]="['/create']">
+        <ion-fab-button color="success">
+            <ion-icon name="add" color="dark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

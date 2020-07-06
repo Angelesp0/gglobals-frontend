@@ -4,14 +4,21 @@
 </ion-header>
 
 <ion-content fullscreen>
-    <div>hola</div>
+    <ion-row>
+        <ion-col>
+            <div>Empresa</div>
+        </ion-col>
+        <ion-col>
+            <div>Nombre</div>
+        </ion-col>
+    </ion-row>
     <ion-grid>
         <ion-row *ngFor="let document of documents">
             <ion-col>
                 <ion-item button href="http://192.168.137.1:3000/files/{{document.nombre}}">
-                    <ion-avatar slot="start">
-                        <img src="./../../../assets/perfil.png">
-                    </ion-avatar>
+                    <ion-label>
+                        {{document.company}}
+                    </ion-label>
                     <ion-label>
                         {{document.nombre}}
                     </ion-label>

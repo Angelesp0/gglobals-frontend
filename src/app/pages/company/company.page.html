@@ -4,8 +4,6 @@
 </ion-header>
 
 
-
-
 <ion-content fullscreen>
     <ion-grid>
         <ion-row *ngFor="let company of companies">
@@ -14,8 +12,9 @@
                     <ion-avatar slot="start">
                         <img src="http://192.168.137.1:3000/files/{{ company.img }}">
                     </ion-avatar>
-                    <ion-label> {{ company.company }}
-                        <ion-label style="font-size:80%">RFC: {{ company.rfc }} </ion-label>
+                    <ion-label>
+                        <h2>{{ company.company }}</h2>
+                        <h3 style="color: grey;">RFC: {{company.rfc}}</h3>
                     </ion-label>
 
                     <ion-button color="danger" size="small" (click)="deleteCompany(company.id_company)">

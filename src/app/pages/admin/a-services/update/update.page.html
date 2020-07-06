@@ -1,0 +1,48 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>update</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content fullscreen>
+    <ion-grid>
+        <ion-col>
+            <ion-item>
+
+                <ion-avatar slot="start">
+                    <img src="http://192.168.137.1:3000/files/{{ this.data.img }}">
+                </ion-avatar>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Nombre del servicio
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="data.name_service" placeholder="Empresa" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Descripcion del servicio
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.desc_service" placeholder="RFC" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Precio
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.price" placeholder="Servicios" inputmode="text"></ion-input>
+            </ion-item>
+            <ion-item>
+                <ion-label position="floating">Imagen
+                    <ion-text color="danger">*</ion-text>
+                </ion-label>
+                <ion-input [(ngModel)]="this.data.img" placeholder="Telefono" inputmode="numeric"></ion-input>
+            </ion-item>
+            <ion-button (click)="update()" color="success">
+                Update
+            </ion-button>
+            <ion-button [routerLink]="[ '/company']" color="danger">
+                Cancel
+            </ion-button>
+        </ion-col>
+    </ion-grid>
+</ion-content>

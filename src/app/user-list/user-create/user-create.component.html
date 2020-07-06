@@ -27,10 +27,10 @@
     <ion-item>
         <ion-input [(ngModel)]="data.password" placeholder="contraseña" inputmode="password"></ion-input>
     </ion-item>
-    <ion-button shape="round" (click)="create()" color="success" size="small">
+    <ion-button (click)="create()" color="success">
         Agregar
     </ion-button>
-    <ion-button shape="round" [routerLink]="[ '/user-list']" color="danger" size="small">
+    <ion-button [routerLink]="[ '/user-list']" color="danger">
         Cancel
     </ion-button>
 </ion-content>

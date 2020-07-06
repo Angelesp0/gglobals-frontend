@@ -1,0 +1,21 @@
+<ion-header>
+    <ion-toolbar>
+        <ion-title>services</ion-title>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+    <ion-row *ngFor="let service of services">
+        <ion-card>
+            <img src="http://192.168.137.1:3000/files/{{ service.img }}" />
+            <ion-card-header>
+                <ion-card-subtitle color="success">$ {{service.price}}</ion-card-subtitle>
+                <ion-card-title>{{service.name_service}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                {{service.desc_service}}
+            </ion-card-content>
+        </ion-card>
+    </ion-row>
+</ion-content>

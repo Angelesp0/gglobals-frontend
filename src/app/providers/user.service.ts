@@ -29,7 +29,11 @@ export class UserService {
 
   httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json; charset=utf-8'
+      'Access-Control-Allow-Origin':'*',
+      'Access-Control-Allow-Methods':'GET',
+      'Access-Control-Allow-Headers':'application/json',
+      'Content-Type': 'application/json; charset=utf-8',
+
     })
   };
 
@@ -142,11 +146,19 @@ export class UserService {
   }
 
   getdocuments(id){
-    return this.http.get('http://192.168.137.1:3000/files/' + id, this.httpOptions);
+    return this.http.get('http://192.168.137.1:3000/user/files/' + id, this.httpOptions);
   }
 
   getDocumentsByIdCompany(id){
     return this.http.get('http://192.168.137.1:3000/company/files/' + id, this.httpOptions);
+  }
+
+  getServices(){
+    return this.http.get('http://192.168.137.1:3000/services', this.httpOptions);
+  }
+
+  documentbyid(){
+
   }
 
 }

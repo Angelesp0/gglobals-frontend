@@ -107,10 +107,10 @@
 
             <ion-button color="tertiary" routerLink="/companydocuments/{{this.id}}">ver documentos!</ion-button>
 
-            <ion-button shape="round" (click)="updateCompany()" color="success" size="small">
+            <ion-button (click)="updateCompany()" color="success">
                 Update
             </ion-button>
-            <ion-button shape="round" [routerLink]="[ '/company']" color="danger" size="small">
+            <ion-button [routerLink]="[ '/company']" color="danger">
                 Cancel
             </ion-button>
         </ion-col>

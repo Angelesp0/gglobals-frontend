@@ -1,0 +1,28 @@
+<!-- student-edit.page.html -->
+<ion-header>
+    <ion-toolbar>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+    <ion-item>
+        <ion-input [(ngModel)]="data.name_service" placeholder="Nombre del servicio" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.desc_service" placeholder="descripcion del servicio" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-item>
+        <ion-input [(ngModel)]="data.price" placeholder="Precio" inputmode="text"></ion-input>
+    </ion-item>
+    <ion-grid>
+        <ion-row color="primary" justify-content-center>
+            <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+                <ion-input type="file" (change)="onFileChanged($event)" #fileInput></ion-input>
+                <ion-button color="tertiary" (click)="onUpload()">Agregar!</ion-button>
+                <ion-button [routerLink]="[ '/a-services']" color="danger">Cancel</ion-button>
+
+                <!-- <ion-progress-bar color="secondary" value="0.5"></ion-progress-bar>-->
+            </ion-col>
+        </ion-row>
+    </ion-grid>
+</ion-content>
