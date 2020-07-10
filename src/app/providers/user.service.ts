@@ -157,6 +157,10 @@ export class UserService {
     return this.http.get('http://192.168.137.1:3000/services', this.httpOptions);
   }
 
+  getServicesByUserId(id){
+    return this.http.get('http://192.168.137.1:3000/user/' + id + '/services/', this.httpOptions);
+  }
+
   documentbyid(){
 
   }

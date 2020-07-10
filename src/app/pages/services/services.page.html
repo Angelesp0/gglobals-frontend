@@ -8,14 +8,17 @@
 <ion-content fullscreen>
     <ion-row *ngFor="let service of services">
         <ion-card>
-            <img src="http://192.168.137.1:3000/files/{{ service.img }}" />
-            <ion-card-header>
-                <ion-card-subtitle color="success">$ {{service.price}}</ion-card-subtitle>
-                <ion-card-title>{{service.name_service}}</ion-card-title>
-            </ion-card-header>
-            <ion-card-content>
-                {{service.desc_service}}
-            </ion-card-content>
+            <ion-row>
+                <ion-col>
+                    <img src="http://192.168.137.1:3000/files/{{ service.img }}" />
+                </ion-col>
+                <ion-col>
+                    <ion-card-header>
+                        <ion-card-subtitle>{{service.name_service}}</ion-card-subtitle>
+                        <ion-button size="small" color="tertiary">consultar</ion-button>
+                    </ion-card-header>
+                </ion-col>
+            </ion-row>
         </ion-card>
     </ion-row>
 </ion-content>

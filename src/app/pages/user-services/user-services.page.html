@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-toolbar>
+    </ion-toolbar>
+</ion-header>
+
+
+<ion-content fullscreen>
+    <ion-list>
+        <ion-row *ngFor="let service of services">
+            <ion-col>
+                <ion-item>
+                    <ion-label>
+                        <h2>{{ service.company }}</h2>
+                        <h3>{{ service.name_service }} </h3>
+                        <div ng-app="gfgApp" ng-controller="dateCntrl">
+                            <h3>{{ service.start_date | date : "dd.MM.y" }} --- {{ service.end_date | date : "dd.MM.y" }}</h3>
+                        </div>
+                        <ng-template [ngIf]="service.status== 1">
+                            <h3 style="color: grey;">Activo</h3>
+                        </ng-template>
+                        <ng-template [ngIf]="service.status== 0">
+                            <h3 style="color: grey;">Desactivado</h3>
+                        </ng-template>
+                    </ion-label>
+                </ion-item>
+            </ion-col>
+        </ion-row>
+    </ion-list>
+    <ion-fab horizontal="start" vertical="bottom" slot="fixed" [routerLink]="['/user-create']">
+        <ion-fab-button color="success">
+            <ion-icon name="add" color="dark"></ion-icon>
+        </ion-fab-button>
+    </ion-fab>
+</ion-content>

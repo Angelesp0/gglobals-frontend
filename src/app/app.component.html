@@ -65,8 +65,12 @@
                     <ion-label>Pagos</ion-label>
                     <ion-icon name="card-outline"></ion-icon>
                 </ion-tab-button>
+                <ion-tab-button tab="user-services/{{this.currentUser['user']['id_user']}}">
+                    <ion-label>Mis Servicios</ion-label>
+                    <ion-icon name="easel-outline"></ion-icon>
+                </ion-tab-button>
                 <ion-tab-button tab="services">
-                    <ion-label>Servicios</ion-label>
+                    <ion-label>Contratar</ion-label>
                     <ion-icon name="easel-outline"></ion-icon>
                 </ion-tab-button>
                 <ion-tab-button tab="documents/{{this.currentUser['user']['id_user']}}">

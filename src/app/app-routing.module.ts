@@ -66,6 +66,10 @@ const routes: Routes = [
   {
     path: 'create',
     loadChildren: () => import('./pages/admin/a-services/create/create.module').then( m => m.CreatePageModule)
+  },
+  {
+    path: 'user-services/:id_user',
+    loadChildren: () => import('./pages/user-services/user-services.module').then( m => m.UserServicesPageModule)
   }
 
 
